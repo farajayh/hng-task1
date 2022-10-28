@@ -23,6 +23,6 @@ Route::get('/', function (Request $request) {
         'slackUsername' => 'Ifara Josh',
         'backend' => true,
         'age' => 26,
-        'bio' => 'I am a passionate about web technologies'
+        'bio' => 'I am passionate about web technologies'
     ]);
 });
