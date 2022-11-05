@@ -36,17 +36,17 @@ Route::post('/calculate', function(Request $request){
 
     if($op == '+' || str_contains(strtolower($op), 'add') === true){
         $result = $x + $y;
-        $output_op = 'Addition';
+        $output_op = 'addition';
     }
 
     if($op == '-' || str_contains(strtolower($op), 'sub') === true){
         $result = $x - $y;
-        $output_op = 'Subtraction';
+        $output_op = 'subtraction';
     }
 
     if($op == '*' || strtolower($op) == 'x'|| str_contains(strtolower($op), 'mul') === true){
         $result = $x * $y;
-        $output_op = 'Multiplication';
+        $output_op = 'multiplication';
     }
 
     return response()->json([
