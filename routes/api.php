@@ -26,3 +26,32 @@ Route::get('/', function (Request $request) {
         'bio' => 'I am passionate about web technologies'
     ]);
 });
+
+Route::post('/calculate', function(Request $request){
+    $op = $request->operation_type;
+    $x = $request->x;
+    $y = $request->y;
+    $result = null;
+    $output_op = '';
+
+    if($op == '+' || str_contains(strtolower($op), 'add') === true){
+        $result = $x + $y;
+        $output_op = 'Addition';
+    }
+
+    if($op == '-' || str_contains(strtolower($op), 'sub') === true){
+        $result = $x - $y;
+        $output_op = 'Subtraction';
+    }
+
+    if($op == '*' || strtolower($op) == 'x'|| str_contains(strtolower($op), 'mul') === true){
+        $result = $x * $y;
+        $output_op = 'Multiplication';
+    }
+
+    return response()->json([
+        'slackUsername' => 'Ifara Josh',
+        'result' => $result,
+        'operation_type' => $output_op
+    ]);
+});
